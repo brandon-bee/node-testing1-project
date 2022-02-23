@@ -64,22 +64,35 @@ describe('[Exercise 5] Seasons', () => {
     seasons = new utils.Seasons() // each test must start with fresh seasons
   })
   test('[9] the FIRST call of seasons.next returns "summer"', () => {
-    expect(true).toBe(false)
+    expect(seasons.next()).toBe('summer')
   })
   test('[10] the SECOND call of seasons.next returns "fall"', () => {
-    expect(true).toBe(false)
+    seasons.next()
+    expect(seasons.next()).toBe('fall')
   })
   test('[11] the THIRD call of seasons.next returns "winter"', () => {
-    expect(true).toBe(false)
+    seasons.next()
+    seasons.next()
+    expect(seasons.next()).toBe('winter')
   })
   test('[12] the FOURTH call of seasons.next returns "spring"', () => {
-    expect(true).toBe(false)
+    seasons.next()
+    seasons.next()
+    seasons.next()
+    expect(seasons.next()).toBe('spring')
   })
   test('[13] the FIFTH call of seasons.next returns again "summer"', () => {
-    expect(true).toBe(false)
+    seasons.next()
+    seasons.next()
+    seasons.next()
+    seasons.next()
+    expect(seasons.next()).toBe('summer')
   })
   test('[14] the 40th call of seasons.next returns "spring"', () => {
-    expect(true).toBe(false)
+    for (let i = 0; i < 39; i++) {
+      seasons.next()
+    }
+    expect(seasons.next()).toBe('spring')
   })
 })
 
